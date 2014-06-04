@@ -55,7 +55,9 @@ class PdfToPpm extends AbstractBinary
 
         $destinationFolder = $destinationRootFolder . '/' . uniqid('pdftoppm').'/';
 
-        mkdir($destinationFolder);
+        if (! mkdir($destinationFolder)) {
+            throw new RuntimeException('Destination folder "%s" could not be created', $destinationFolder);
+        }
 
         $options = $this->buildOptions($inputPdf, $destinationFolder, $saveAsPng, $resolution);
 
