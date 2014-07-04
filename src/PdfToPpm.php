@@ -50,13 +50,12 @@ class PdfToPpm extends AbstractBinary
         }
 
         if (false === is_writable($destinationRootFolder)) {
-            throw new RuntimeException('Destination folder "%s" is not writable', $destinationRootFolder);
+            throw new RuntimeException(sprintf('Destination folder "%s" is not writable', $destinationRootFolder));
         }
 
-        $destinationFolder = $destinationRootFolder . '/' . uniqid('pdftoppm').'/';
-
-        if (! mkdir($destinationFolder)) {
-            throw new RuntimeException('Destination folder "%s" could not be created', $destinationFolder);
+        $destinationFolder = $this->getDestinationDir($destinationRootFolder);
+        if (! $this->createDirectory($destinationFolder)) {
+            throw new RuntimeException(sprintf('Destination folder "%s" could not be created', $destinationFolder));
         }
 
         $options = $this->buildOptions($inputPdf, $destinationFolder, $saveAsPng, $resolution);
@@ -68,6 +67,16 @@ class PdfToPpm extends AbstractBinary
         }
 
         return new \FilesystemIterator($destinationFolder, \FilesystemIterator::SKIP_DOTS);
+    }
+
+    private function createDirectory($destinationFolder)
+    {
+        return mkdir($destinationFolder);
+    }
+
+    private function getDestinationDir($destinationRootFolder)
+    {
+        return $destinationRootFolder . '/' . uniqid('pdftoppm').'/';
     }
 
     /**
