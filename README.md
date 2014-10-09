@@ -1,5 +1,6 @@
 php-pdftoppm
 =============
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/waarneembemiddeling/php-pdftoppm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 PHP wrapper for the [pdftoppm command][1] which is part of
 [poppler-utils][2].
