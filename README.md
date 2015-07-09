@@ -1,5 +1,7 @@
 php-pdftoppm
 =============
+[![Build Status](https://scrutinizer-ci.com/g/waarneembemiddeling/php-pdftoppm/badges/build.png?b=master)](https://scrutinizer-ci.com/g/waarneembemiddeling/php-pdftoppm/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/waarneembemiddeling/php-pdftoppm/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/waarneembemiddeling/php-pdftoppm/?branch=master)
 
 PHP wrapper for the [pdftoppm command][1] which is part of
 [poppler-utils][2].
